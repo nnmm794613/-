@@ -28,6 +28,19 @@
         function q1() {
             $('#names-q1').empty()
 
+            $.ajax({
+                type: "GET",
+                url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/bikeList/1/99",
+                data: {},
+                success: function (response) {
+                    const row = response.rentBikeStatus.row
+
+                    for (let i = 0; i < row.length; i++) {
+
+                    }
+                }
+            })
+
             // 여기에 코드를 입력하세요
         }
     </script>
@@ -72,5 +85,5 @@
         </table>
     </div>
 </body>
-
+dsfsdfafaafeaefaefa
 </html>
