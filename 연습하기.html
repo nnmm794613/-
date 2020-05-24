@@ -36,7 +36,15 @@
                     const row = response.rentBikeStatus.row
 
                     for (let i = 0; i < row.length; i++) {
-
+                        $('#names-q1').append(
+                            `
+                            <tr>
+                                <td>${row[i]['stationName']}</td>
+                                <td>${row[i]['rackTotCnt']}</td>
+                                <td>${row[i]['parkingBikeTotCnt']}</td>
+                            </tr>
+                            `
+                        )
                     }
                 }
             })
@@ -85,5 +93,5 @@
         </table>
     </div>
 </body>
-dsfsdfafaafeaefaefa
+
 </html>
