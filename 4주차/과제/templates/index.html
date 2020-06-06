@@ -22,6 +22,8 @@
 
 <script>
     function 주문하기() {
+
+       
         const nameTagValue = $('#name').val()
         const quantityTagValue = $('#quantity option:selected').val()
         const addressTagValue = $('#address').val()
@@ -48,30 +50,25 @@
         }
 
         if (emptyInputs.length === 0) {
-            alert('주문이 완료되었습니다')
+            $.ajax({
+                type: "POST",
+                url: "/products",
+                data: {name: nameTagValue, count: quantityTagValue, phone: phoneTagValue, address: addressTagValue},
+                success: function (response) {
+                    alert("성공적으로 저장을 완료 하였습니다.")
+                    window.location.reload()
+                }
+            })
         } else {
             alert(emptyInputs.join())
         }
-
+        
     }
-
-    $.ajax({
-        type: "POST",
-        url: "/products",
-        data: {name: name, count: count, phone: phone, address: address},
-        success: function (response) {
-            alert("성공적으로 저장을 완료 하였습니다.")
-            window.location.reload()
-        }
-    })
-
-    $(document).ready(function () {
-        $("#orders-box").empty();
-        listing();
-    })
 
     
     $(document).ready(function () {
+        $("#orders-box").empty();
+        listing();
         $.ajax({
             type: "GET",
             url: "https://api.manana.kr/exchange/rate.json",
@@ -82,9 +79,9 @@
                 $('#rate').html(`달러-원 환율 : ${rate}`)
             }
         })
+    })
 
-    });
-
+    
     function listing() {
         $.ajax({
             type: "GET",
