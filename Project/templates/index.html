@@ -3,38 +3,53 @@
 
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- J Query 안깔리면 $('name') 안먹힘 -->
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <script>
+        /* Function */
+        function Convert() {
+            const someTextareaValue = $('#some').val()
+            if (isEnglish(someTextareaValue)) {
+                alert('Successfully transcribed.');
+            } else {
+                alert('Please type in or paste English ONLY.')
+            }
+        }
 
-<script>
-    함수
+        function isEnglish(str) {
+            var pattern_num = /[0-9]/;	// 숫자 
+            var pattern_eng = /[a-zA-Z]/;	// 문자 
+            var pattern_spc = /[~!@#$%^&*()_+|<>?:{}]/; // 특수문자
+            var pattern_kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; // 한글체크
+            if ((pattern_eng.test(str)) && !(pattern_num.test(str)) && !(pattern_spc.test(str)) && !(pattern_kor.test(str))) {
+                return true
+            } else {
+                return false
+            }
+        }
 
-</script>
+    </script>
 
 
     <title>Phonetics</title>
 
     <style>
-
-     
-
         .wrap {
             width: 800px;
             height: 1100px;
             margin: 0 auto;
             background-color: lightgoldenrodyellow;
-            font-family: 'Poor Story', cursive;
+            font-family: 'Staatliches', cursive;
             border-radius: 20px;
             padding: 20px;
             border: steelblue double 5px;
-            
-            
+
+
 
         }
 
-        /* span.nobreak {
-            overflow: hidden;
-            text-overflow: ellipsis
-            white-space: nowrap;
-            } */
+
 
         .img-wrapper {
             width: 100%;
@@ -44,8 +59,8 @@
             width: 200px;
             height: auto;
             border-radius: 20px;
-            
-        
+
+
         }
 
         div {
@@ -59,16 +74,15 @@
         }
 
         textarea {
-            width: 500px;
-            height: 30px;
+            width: 800px;
+            height: 50px;
 
         }
 
         button {
             width: 170px;
-            height: 30px;
+            height: 50px;
         }
-
     </style>
 
 </head>
@@ -76,63 +90,80 @@
 <body>
     <div class="wrap">
         <div class="img-wrapper">
-            
-        <div class="product-description">
-            <div class="title"></div>
-            
-            <hr>
-            <span>
-                <img src="https://i.pinimg.com/originals/a8/5f/fb/a85ffb5fcc020ad21f95b0379c0af22f.png" style="float:left; width:85px; height:80px; margin-left: 35px;">
-                <div><span style="font-family: 'Anton', sans-serif;font-size: xxx-large;color:rgb(46, 85, 117); font-size: xxx-large;"><bold>Handy Phonetic Converter</bold></span><span style= margin-left:30px;>S1970723</span></div>
-            </span>
-            <hr>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <img src="https://www.englishclub.com/images/pronunciation/Phonemic-Chart.jpg" width="600px" height="600px" >
-                <div >
-                    <div>1. 먄애루ㅑㅁㅇㄴㄻ눌</div>
-                    <div>2. 먄애루ㅑㅁㅇㄴㄻ눌</div>
-                    <div>3. 먄애루ㅑㅁㅇㄴㄻ눌</div>
-                    <div>4. 먄애루ㅑㅁㅇㄴㄻ눌</div>
-                    <div>5. 먄애루ㅑㅁㅇㄴㄻ눌</div>
-                    <div>6. 먄애루ㅑㅁㅇㄴㄻ눌</div>
-                    <div>7. 먄애루ㅑㅁㅇㄴㄻ눌</div>
-                    <div>8. 먄애루ㅑㅁㅇㄴㄻ눌</div>
-                    <div>9. 먄애루ㅑㅁㅇㄴㄻ눌</div>
-                    <div>10. 먄애루ㅑㅁㅇㄴㄻ눌</div>
+
+            <div class="product-description">
+                <div class="title"></div>
+                <hr>
+                <hr>
+                <span>
+                    <img src="https://i.pinimg.com/originals/a8/5f/fb/a85ffb5fcc020ad21f95b0379c0af22f.png"
+                        style="float:left; width:85px; height:80px; margin-left: 25px;">
+                    <div><span
+                            style="font-family: 'Anton', sans-serif;font-size: xxx-large;color:rgb(46, 85, 117); font-size: 50px;">
+                            <bold>Handy Phonetic Converter</bold>
+                        </span><span
+                            style="font-family: 'Playfair Display', serif; margin-left:30px; margin-right: 5px; font-size: 20px;">
+                            <bold>S1970723</bold>
+                        </span></div>
+                </span>
+                <hr>
+                <hr>
+                <div>
+
                 </div>
+                <div style="display: flex; justify-content: space-around; align-items: center; padding-bottom: 20px;">
+                    <img src="https://www.englishclub.com/images/pronunciation/Phonemic-Chart.jpg" width="550px"
+                        height="650px">
+                    <div>
+                        <div><span style="font-size: 25px;"> MOST FREQUENT WORDS </span></div>
+
+                        <div><span style="font-size: 20px;">1. APPLE</span></div>
+                        <div><span style="font-size: 20px;">2. APPLE</span></div>
+                        <div><span style="font-size: 20px;">3. APPLE</span></div>
+                        <div><span style="font-size: 20px;">4. APPLE</span></div>
+                        <div><span style="font-size: 20px;">5. APPLE</span></div>
+                        <div><span style="font-size: 20px;">6. APPLE</span></div>
+                        <div><span style="font-size: 20px;">7. APPLE</span></div>
+                        <div><span style="font-size: 20px;">8. APPLE</span></div>
+                        <div><span style="font-size: 20px;">9. APPLE</span></div>
+                        <div><span style="font-size: 20px;">10. APPLE</span></div>
+                    </div>
+                </div>
+
             </div>
-            
-        </div>
-        
-        
-            
 
-        
+
+
+
+
 
         </div>
 
-        
+
 
         <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text">With textarea</span>
+                <span class="input-group-text"></span>
             </div>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
+            <textarea id="some" class="form-control"
+                placeholder="Please type in or paste words or sentences in English."></textarea> </textarea>
         </div>
 
-        <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+        <button onclick="Convert()" type="button" class="btn btn-secondary btn-lg">Convert to Phonetics</button>
 
         <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text">With textarea</span>
+                <span class="input-group-text"></span>
             </div>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
-          </div>
-          
-       
+            <textarea class="form-control" placeholder="Phonetic transcriptions will be shown up here."></textarea>
+            </textarea>
+        </div>
+
+
     </div>
 
-    
+
 
 </body>
+
 </html>
