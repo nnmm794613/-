@@ -10,10 +10,6 @@ app = Flask(__name__)
 @app.route('/')
 def home():
    return render_template('index.html')
-   
-@app.route('/after_login')
-def home():
-   return render_template('after_login.html')
 
 # @app.route('/update_count', methods=['POST'])
 # def update_count():

@@ -43,7 +43,18 @@
             }
         }
 
+        function checkPasswordAndShowRestOfHtml() {
+            const input = $("#password-input").val()
+            if (input === "1234") {
+                $("#after-login").show()
+            } else {
+                alert("login failed")
+            }
+        }
 
+        $(document).ready(function () {
+            $("#after-login").hide()
+        })
 
     </script>
 
@@ -131,7 +142,10 @@
 </head>
 
 <body>
-    <div style="border-radius: 15px;" class="wrap">
+    <input id="password-input" type="password" />
+    <button id="password-submit" onclick="checkPasswordAndShowRestOfHtml()">패스워드 체크</button>
+
+    <div id="after-login" style="border-radius: 15px;" class="wrap">
         <div class="img-wrapper">
 
             <div class="product-description">
@@ -327,9 +341,6 @@
                                                             <p></p>
                                                         </div>
                                                 </div>
-
-
-
 </body>
 
 </html>
