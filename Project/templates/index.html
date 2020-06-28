@@ -4,11 +4,13 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- J Query 안깔리면 $('name') 안먹힘 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- J Query 안깔리면 $('name') 안먹힘 -->
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap" rel="stylesheet">
     <script>
         /* Function */
         function Convert() {
@@ -17,12 +19,12 @@
                 $.ajax({
                     url: `/phonetics?search_text=${someTextareaValue}`,
                     method: 'GET',
-                    success: function(response) {
-                        if (response["result"]==="success") {
-                            $('#sentence').text(response["phonetics"])
+                    success: function (response) {
+                        if (response["result"] === "success") {
+                            $('#sentence').html(`<span style="font-size: 33px; margin-top: 20px;"><mark>${response["phonetics"]}</mark></span>`)
                             alert('Successfully been transcribed.');
                         }
-                    } 
+                    }
                 })
             } else {
                 alert('Please type in or paste English ONLY.')
@@ -41,7 +43,7 @@
             }
         }
 
-       
+
 
     </script>
 
@@ -57,12 +59,7 @@
             /* font-family: 'Staatliches', cursive; */
             border-radius: 20px;
             padding: 20px;
-            border: solid 15px rgb( 0, 51, 102) 
-            
-            
-
-
-
+            border: solid 15px rgb(0, 51, 102)
         }
 
 
@@ -90,13 +87,12 @@
         }
 
         textarea {
-            width: 750px;
+            width: 900px;
             height: 70px;
-            font-size: 23px;
+            font-size: 30px;
             border-left: 6px solid white;
-            background-color: rgb( 0, 51, 102);
+            background-color: rgb(0, 51, 102);
             color: white
-
         }
 
         button {
@@ -104,40 +100,38 @@
             height: 90px;
             margin-bottom: 45px;
             margin-top: 45px;
-            font-size: 25px;
+            font-size: 30px;
             border-radius: 15px;
-            
-        }
-
-        ::-webkit-input-placeholder { /* Chrome */
-             color: white;
+            font-weight: bold;
 
         }
 
-        .tab { 
-            display:inline-block; 
-            margin-left: 40px; 
+        ::-webkit-input-placeholder {
+            /* Chrome */
+            color: white;
 
         }
-        hr { 
-            position: relative; 
-            
-            border: none; 
-            height: 3px; 
-            background: rgb(0, 51, 102); 
-            
-        } 
-        
 
-      
-    
+        .tab {
+            display: inline-block;
+            margin-left: 40px;
 
+        }
+
+        hr {
+            position: relative;
+
+            border: none;
+            height: 3px;
+            background: rgb(0, 51, 102);
+
+        }
     </style>
 
 </head>
 
 <body>
-    <div class="wrap">
+    <div style="border-radius: 15px;" class="wrap">
         <div class="img-wrapper">
 
             <div class="product-description">
@@ -146,26 +140,27 @@
                 <hr>
                 <span>
                     <img src="https://i.pinimg.com/originals/a8/5f/fb/a85ffb5fcc020ad21f95b0379c0af22f.png"
-                        style="float:left; width:85px; height:80px; margin-left: 25px;">
+                        style="float:left; width:85px; height:80px; margin-left: 25px; margin-right: 85px;">
                     <div><span
                             style="font-family: 'Anton', sans-serif;font-size: xxx-large;color:rgb(0, 51, 102); font-size: 50px;">
                             <bold>Handy Phonetic Converter</bold>
                         </span><span
-                            style="font-family: 'Playfair Display', serif; margin-left:30px; margin-right: 5px; font-size: 20px;">
-                            <bold>S1970723</bold>
+                            style="font-family: 'Playfair Display', serif; margin-left:30px; margin-right: 0.3cm; font-size: 20px;">
+                            <bold>S1970723 (Sung)</bold>
                         </span></div>
                 </span>
                 <hr>
                 <hr>
                 <div>
 
-            
+
                 </div>
 
-                <div style="display: flex; justify-content: space-around; align-items: center; padding-bottom: 2px; padding-top: 40px;">
+                <div
+                    style="display: flex; justify-content: space-around; align-items: center; padding-bottom: 2px; padding-top: 40px;">
                     <img src="https://www.englishclub.com/images/pronunciation/Phonemic-Chart.jpg" width="1020px"
                         height="750px">
-                   
+
                 </div>
 
             </div>
@@ -179,102 +174,159 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"></span>
             </div>
-            <textarea id="some" class="form-control" 
+            <textarea id="some" class="form-control"
                 placeholder="Please type in or paste A SINGLE WORD in English."></textarea>
         </div>
 
-        <button onclick="Convert()" type="button" class="btn btn-secondary btn-lg" style="font-family: 'Tinos', serif; font-size: 25px; background-color: rgb(248, 228, 204); color:rgb(0, 51, 102);">Convert to Phonetics</button>
+        <button onclick="Convert()" type="button" class="btn btn-secondary btn-lg"
+            style="font-family: 'Tinos', serif; font-size: 25px; background-color: rgb(248, 228, 204); color:rgb(0, 51, 102);">Convert
+            to Phonetics</button>
 
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"></span>
             </div>
-            <div id="sentence" class="form-control"><span style="font-size: 25px; margin-top: 20px;"><mark>"PHONETIC TRANSCRIPTIONS WILL BE SHOWN UP HERE."</mark></span></div>
-            
+            <div id="sentence" class="form-control"><span style="font-size: 33px; margin-top: 20px;"><mark>"PHONETIC
+                        TRANSCRIPTIONS WILL BE SHOWN UP HERE."</mark></span></div>
+
         </div>
 
-       <pre>
+        <pre>
 
 
 
 
        </pre>
 
-        <div style="background-color:rgb(248, 228, 204); color: rgb( 0, 51, 102); padding-bottom: 20px; padding-top: 40px;" class="informationONE">
+        <div style="background-color:rgb(248, 228, 204); color: rgb( 0, 51, 102); padding-bottom: 20px; padding-top: 40px; border-top: rgb(149, 175, 197) 23px;"
+            class="informationONE">
 
-            <div><span style= "font-family: 'Tinos', serif; font-size: 30px;"><u>WHY is it crutial to learn how to read English phonetics?</u></span></div>
+            <div><span style="font-family: 'Tinos', serif; font-size: 30px;"><u>WHY is it crutial to learn how to read
+                        English phonetics?</u></span></div>
             <br></br>
-            <span style= "font-family: 'Tinos', serif; font-size: 24px;">This is because English is a NON-PHONETIC language.</span>
+            <span style="font-family: 'Tinos', serif; font-size: 24px;">This is because English is a NON-PHONETIC
+                language.</span>
             <p></p>
-            <span style= "font-family: 'Tinos', serif; font-size: 24px;">The majority of English words are not pronounced as they are written.</span>
+            <span style="font-family: 'Tinos', serif; font-size: 24px;">The majority of English words are not pronounced
+                as they are written.</span>
             <p></p>
 
-            <div><span style= "font-family: 'Tinos', serif; font-size: 24px;">There is a famous example showing the irregularities in pronunciation of English words.</span>
-            <br></br>
+            <div><span style="font-family: 'Tinos', serif; font-size: 24px;">There is a famous example showing the
+                    irregularities in pronunciation of English words.</span>
+                <br></br>
 
-            <div><span style= "font-family: 'Lalezar', cursive; font-size: 25px;">How is  <strong>   'ghoti'   </strong>  pronounced?
-            <div><span style= "font-family: 'Lalezar', cursive; font-size: 25px;">The answer is 'fish'.
-            <div><span style= "font-family: 'Lalezar', cursive; font-size: 25px;">'gh' --> /f/ as in rou<strong>GH</strong>
-            <div><span style= "font-family: 'Lalezar', cursive; font-size: 25px;">'o' --> /i/ as in w<strong>O</strong>men
-            <div><span style= "font-family: 'Lalezar', cursive; font-size: 25px;">'ti' --> /ʃ/ as in na<strong>TI</strong>on
-            <p></p>
-            <div><span style= "font-family: 'Tinos', serif; font-size: 23px;">This highlights the importance of learning phonetics.
-            <pre></pre>
-        
-        </div>
-        
-      
+                <div><span style="font-family: 'Lalezar', cursive; font-size: 25px;">How is <strong> 'ghoti' </strong>
+                        pronounced?
+                        <div><span style="font-family: 'Lalezar', cursive; font-size: 25px;">The answer is 'fish'.
+                                <div><span style="font-family: 'Lalezar', cursive; font-size: 25px;">'gh' --> /f/ as in
+                                        rou<strong>GH</strong>
+                                        <div><span style="font-family: 'Lalezar', cursive; font-size: 25px;">'o' --> /i/
+                                                as in w<strong>O</strong>men
+                                                <div><span
+                                                        style="font-family: 'Lalezar', cursive; font-size: 25px;">'ti'
+                                                        --> /ʃ/ as in na<strong>TI</strong>on
+                                                        <p></p>
+                                                        <div><span
+                                                                style="font-family: 'Tinos', serif; font-size: 23px;">This
+                                                                highlights the importance of learning phonetics.
+                                                                <pre></pre>
 
-        <div style="background-color:rgb( 0, 51, 102); color: white; padding-bottom: 20px; padding-top: 40px" class="informationTWO">
-            <div><span style= "font-family: 'Tinos', serif; font-size: 26px;"><u>The most commonly mispronounced English words include the followings:</u></span></div> 
-            <p></p>
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 22px;">Salmon / Almond / Iron / Summer / Sandwich </span></li>
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 22px;">Yacht / Receipt / Genre / Bury / Tomb </span></li>
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 22px;">Pizza / Meme / Subtle / Asthma / Suite </span></li> 
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 22px;">Mischievous / Police / Heir / Mortgage / Debt </span></li>
-            <p></p>
-            <p>Do you think you know how to pronounce them correctly?</p>
-            <div></div>
-            <p>Why don't you try using the converter to check it out?</p>
-            
+                                                        </div>
 
-        </div>   
 
-     
 
-            
-        <div style="background-color:rgb(248, 228, 204); color: rgb( 0, 51, 102); padding-bottom: 10px; padding-top: 40px" class="informationTHREE">
-            
-            <div><span style= "font-family: 'Tinos', serif;font-size: 23px;"><u>Some words could mean completely different unless you keep the vowel length LONG ENOUGH.</u></span></div>
-            <p></p>
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 25px;"> Bitch /ɪ/ VS Beach /i:/</span></li>
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 25px;"> Shit /ɪ/ VS Sheet /i:/</span></li>
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 25px;"> Piss /ɪ/ VS Peace /i:/</span></li>
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 25px;"> Cunt /ʌ/ VS Can't /a:/</span></li>
+                                                        <div style="background-color:rgb( 0, 51, 102); color: white; padding-bottom: 20px; padding-top: 40px"
+                                                            class="informationTWO">
+                                                            <div><span
+                                                                    style="font-family: 'Tinos', serif; font-size: 28px;"><u>The
+                                                                        most commonly mispronounced English words
+                                                                        include the followings:</u></span></div>
+                                                            <p></p>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">Salmon
+                                                                    / Almond / Iron / Summer / Sandwich </span></li>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">Yacht
+                                                                    / Receipt / Genre / Bury / Tomb </span></li>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">Pizza
+                                                                    / Meme / Subtle / Asthma / Suite </span></li>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">Mischievous
+                                                                    / Police / Heir / Mortgage / Debt </span></li>
+                                                            <p></p>
+                                                            <p><span style="font-family: 'Crimson Text', serif;"> The
+                                                                    words above are mispronounced frequently
+                                                                    </br> YET many non-native English speakers are
+                                                                    unaware of their mispronunciation. </span></p>
 
-        </div>    
 
-        <div style="background-color:rgb(0, 51, 102); color: white; padding-bottom: 10px; padding-top: 40px" class="informationTHREE">
-            
-            <div><span style= "font-family: 'Tinos', serif;font-size: 27px;"><u>The next updates will be dealing with the followings:</u></span></div>
-            <p></p>
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 25px;"> Intrusive sounds in connected discourse. </span></li>
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 25px;"> More technical details on the organisation of the Phonemic Chart. </span></li>
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 25px;"> Intonation patterns. </span></li>
-            <li><span style = "font-family: 'Lalezar', cursive; font-size: 25px;"> Word stress VS sentence stress</span></li>
-        </div>    
 
-        <div style="background-color:rgb(0, 9, 17); color: yellow; padding-bottom: 10px; padding-top: 40px" class="informationTHREE">
-            
-            <div><span style= "font-family: 'Tinos', serif;font-size: 30px;"><u>Why don't you try using the converter and check on your pronunciation?</u></span></div>
-            <p></p>
-        </div>    
+                                                        </div>
 
 
 
 
+                                                        <div style="background-color:rgb(248, 228, 204); color: rgb( 0, 51, 102); padding-bottom: 10px; padding-top: 40px"
+                                                            class="informationTHREE">
 
-    </div>
+                                                            <div><span
+                                                                    style="font-family: 'Tinos', serif;font-size: 23px;"><u>Some
+                                                                        words could mean completely different unless you
+                                                                        keep the vowel length LONG ENOUGH.</u></span>
+                                                            </div>
+                                                            <p></p>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">
+                                                                    Bitch /ɪ/ VS Beach /i:/</span></li>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">
+                                                                    Shit /ɪ/ VS Sheet /i:/</span></li>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">
+                                                                    Piss /ɪ/ VS Peace /i:/</span></li>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">
+                                                                    Cunt /ʌ/ VS Can't /a:/</span></li>
+                                                            <p></p>
+
+                                                        </div>
+
+                                                        <div style="background-color:rgb(0, 51, 102); color: white; padding-bottom: 10px; padding-top: 40px"
+                                                            class="informationTHREE">
+
+                                                            <div><span
+                                                                    style="font-family: 'Tinos', serif;font-size: 27px;"><u>THE
+                                                                        NEXT TOPICS will be dealing with the
+                                                                        followings:</u></span></div>
+                                                            <p></p>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">
+                                                                    Intrusive sounds in connected discourse. </span>
+                                                            </li>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">
+                                                                    More technical details on the organisation of the
+                                                                    Phonemic Chart. </span></li>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">
+                                                                    Intonation patterns. </span></li>
+                                                            <li><span
+                                                                    style="font-family: 'Lalezar', cursive; font-size: 25px;">
+                                                                    Word stress VS sentence stress</span></li>
+                                                            <p></p>
+                                                        </div>
+
+                                                        <div style="background-color:rgb(149, 175, 197); color: rgb(4, 4, 31); padding-bottom: 10px; padding-top: 40px"
+                                                            class="informationTHREE">
+
+                                                            <div><span
+                                                                    style="font-family: 'Crimson Text', serif; font-size: 35px; font-weight: bolder;"><u>Why
+                                                                        don't you try using the converter and check on
+                                                                        your pronunciation?</u></span></div>
+                                                            <p></p>
+                                                        </div>
+                                                </div>
 
 
 
