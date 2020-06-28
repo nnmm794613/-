@@ -45,7 +45,7 @@
 
         function checkPasswordAndShowRestOfHtml() {
             const input = $("#password-input").val()
-            if (input === "1234") {
+            if (input === "1970723") {
                 $("#after-login").show()
             } else {
                 alert("login failed")
@@ -137,13 +137,20 @@
             background: rgb(0, 51, 102);
 
         }
+
+        
     </style>
 
 </head>
 
 <body>
-    <input id="password-input" type="password" />
-    <button id="password-submit" onclick="checkPasswordAndShowRestOfHtml()">패스워드 체크</button>
+    <span style="font-size: 30px;">Please type in the password and then clich the button.</span> 
+    </br>
+    </br>
+    </br>
+    <span style="font-size: 30px;"><strong>PASSWORD:</strong></span> <input style="width: 300px; height: 30px; border-radius: 20px; font-size: 20px;" id="password-input" type="password" />
+    </br>
+    <button style="width: 500px;" id="password-submit;" onclick="checkPasswordAndShowRestOfHtml()">SHOW ME THE PAGE!</button>
 
     <div id="after-login" style="border-radius: 15px;" class="wrap">
         <div class="img-wrapper">
