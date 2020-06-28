@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
 client = MongoClient('localhost', 27017)  
@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-   return 'This is Home!'
+   return render_template('index.html')
 
 # @app.route('/update_count', methods=['POST'])
 # def update_count():
